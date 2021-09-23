@@ -1,14 +1,18 @@
+package com.user;
 
 public class User
 {
 	private String userName;
 	private String lastName;
-	private int password;
-	private long accountNum;
+	private String password;
+	private String accountNum;
 	private double amount;
 	
+	public User()
+	{
+	}
 	
-	public User(String _userName,String _lastName,int _password,long _accountNum,double _amount)
+	public User(String _userName,String _lastName,String _password,String _accountNum,double _amount)
 	{
 		this.userName=_userName;
 		this.lastName=_lastName;
@@ -18,51 +22,58 @@ public class User
 	}
 	
 	//setters and getters
-	
-	public String setUserName(String _userName)
+	public void setUserName(String _userName)
 	{
 		this.userName=_userName;
-		return userName;
 	}
-	
-	
-	public String setLastName(String _lastName)
+	public void setLastName(String _lastName)
 	{
 		this.lastName=_lastName;
-		return lastName;
 	}
-	
-	public int setPassword(int _password)
+	public void setPassword(String _password)
 	{
 		this.password=_password;
-		return password;
 	}
-	
-	public long setAccountNum(long _accountNum)
+	public void setAccountNum(String _accountNum)
 	{
 		this.accountNum=_accountNum;
 		
-		return accountNum;
 	}
-	public double setAmount(double _amount)
+	public void setAmount(double _amount)
 	{
 		this.amount=_amount;
+	}
+	
+	public String getUserName( )
+	{
+		return userName;
+	}
+	public String getLastName( )
+	{
+		return lastName;
+	}
+	public String getPassword( )
+	{
+		return password;
+	}
+	public String getAccountNum( )
+	{
+		return accountNum;
+	}
+	public double getAmount( )
+	{
 		return amount;
 	}
 	
 	
-	
-	
 	//helper Methods
-	
-	
-	
-	public boolean checkPassword(int _password)
+	public boolean checkPassword(String _password)
 	{
 		boolean results=false;
 		int countLength=0;
 		
-		for(int outer=0;outer<_password;outer++)
+		int pass=Integer.parseInt(_password);
+		for(int outer=0;outer<pass;outer++)
 		{
 			countLength++;
 		}
@@ -77,11 +88,9 @@ public class User
 			results=false;
 		}
 		
-		
 		return results;
 	}
-	
-	
+		
 	public String withdrawal(double _amount)
 	{
 		String message="";
@@ -106,10 +115,9 @@ public class User
 		amount=amount+_amount;
 		message="Successfully Deposited R"+_amount+" into Savings Account";
 		message+="\n"+"Total Savings R"+amount;
+		
 		return message;
 	}
-	
-	
 	
 	
 }
